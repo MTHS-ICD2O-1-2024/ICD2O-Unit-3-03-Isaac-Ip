@@ -31,7 +31,7 @@ function doMathClicked() {
 
 function updateVolume() {
   localStorage.getItem("sphereVolume");
-  if (!isNaN(volume)) {
+  if (!isNaN("sphereVolume")) {
     document.getElementById("volume").innerHTML =
       "<p>The volume is: " + sphereVolume + " mm³. </p>";
   } else {
