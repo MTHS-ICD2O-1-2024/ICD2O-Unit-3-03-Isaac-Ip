@@ -14,23 +14,27 @@ if (navigator.serviceWorker) {
 }
 
 /**
-* Do basic math.
-*/
+ * Do basic math.
+ */
 function doMathClicked() {
-    // input
-    const radius = parseFloat(document.getElementById("radius").value)
+  // input
+  const radius = parseFloat(document.getElementById("radius").value);
 
-    // process
-    const volumeOfSphere = (4 / 3) * Math.PI * radius ** 3
-    localStorage.setItem("volume", "volumeOfSphere");
+  // process
+  const volumeOfSphere = (4 / 3) * Math.PI * radius ** 3;
+  localStorage.setItem("sphereVolume", "volumeOfSphere");
 
-    // output
-    document.getElementById("volume").innerHTML =
-        "<p>The volume is: " + volumeOfSphere.toFixed(2) + " mm³. </p>"
+  // output
+  document.getElementById("volume").innerHTML =
+    "<p>The volume is: " + volumeOfSphere.toFixed(2) + " mm³. </p>";
 }
 
-function updateVolume(){
-    localStorage.getItem("volume")
-        document.getElementById("volume").innerHTML =
-        "<p>The volume is: " + volume + " mm³. </p>"
+function updateVolume() {
+  localStorage.getItem("sphereVolume");
+  if (!isNaN(volume)) {
+    document.getElementById("volume").innerHTML =
+      "<p>The volume is: " + sphereVolume + " mm³. </p>";
+  } else {
+    document.getElementById("volume").innerHTML = "";
+  }
 }
