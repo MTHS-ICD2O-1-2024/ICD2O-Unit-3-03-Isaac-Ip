@@ -22,7 +22,7 @@ function doMathClicked() {
 
   // process
   const volumeOfSphere = (4 / 3) * Math.PI * radius ** 3;
-  localStorage.setItem("sphereVolume", "volumeOfSphere");
+  localStorage.setItem("sphereVolume", volumeOfSphere);
 
   // output
   document.getElementById("volume").innerHTML =
@@ -30,10 +30,10 @@ function doMathClicked() {
 }
 
 function updateVolume() {
-  localStorage.getItem("sphereVolume");
-  if (!isNaN("sphereVolume")) {
+  const sphereVolume = localStorage.getItem("sphereVolume");
+  if (sphereVolume !== null && !isNaN(parseFloat(sphereVolume))) {
     document.getElementById("volume").innerHTML =
-      "<p>The volume is: " + sphereVolume + " mm³. </p>";
+      "<p>The volume is: " + parseFloat(sphereVolume).toFixed(2) + " mm³. </p>";
   } else {
     document.getElementById("volume").innerHTML = "";
   }
